@@ -3,12 +3,12 @@ import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
 const Container = styled.div`
- border: 3px solid lightgrey;
- border-radius: 50%;
+ border: 1px solid lightgrey;
+//  border-radius: 50%;
  padding: 8px;
- margin-right: 8px;
- width:40px;
- height:40px;
+ margin-bottom: 8px;
+//  width:40px;
+//  height:40px;
  background-color: ${props => 
   props.isDragDisabled
     ?'lightgrey'
@@ -34,7 +34,8 @@ const Handle = styled.div`
 `
 
 function Task(props) {
-  const isDragDisabled = props.task.id==='task-1'
+  // const isDragDisabled = props.task.id==='task-1'
+  const isDragDisabled =false
   return (
     <Draggable 
       draggableId={props.task.id} 
@@ -49,11 +50,10 @@ function Task(props) {
             ref={provided.innerRef}
             isDragging={snapshot.isDragging}
             isDragDisabled={isDragDisabled}
-
           >
             {/* Custom Handler */}
             {/* <Handle {...provided.dragHandleProps} /> */}
-            {props.task.content[0]}
+            {props.task.content}
           </Container>
         )
       }

@@ -7,7 +7,7 @@ const Container= styled.div`
     margin:8px;
     border:1px solid lightgrey;
     border-radius:2px;
-    width:220px;
+    // width:220px;
 
     display:flex;
     flex-direction:column;
@@ -19,7 +19,9 @@ const TaskList = styled.div`
     padding:8px;
     transition: background-color 0.2s ease;
     background-color: ${props => (props.isDraggingOver ? 'skyblue' : 'white')};
-    min-height:100px
+    // min-height:100px;
+
+    display:flex;
 `;
 
 function Column(props) {
@@ -29,6 +31,7 @@ function Column(props) {
         <Droppable 
           droppableId={props.column.id}
           isDropDisabled={props.isDropDisabled}
+          direction="horizontal"
         >
           {(provided,snapShot)=>(
             <TaskList

@@ -3,16 +3,27 @@ import { Draggable } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
 const Container = styled.div`
- border: 1px solid lightgrey;
- border-radius: 2px;
+ border: 3px solid lightgrey;
+ border-radius: 50%;
  padding: 8px;
- margin-bottom: 8px;
+ margin-right: 8px;
+ width:40px;
+ height:40px;
  background-color: ${props => 
   props.isDragDisabled
     ?'lightgrey'
     : props.isDragging 
     ? 'lightGreen' 
-    : 'white'};`;
+    : 'white'};
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  &:focus{
+    ouline:none;
+    border-color:red;
+  }
+`;
 
 const Handle = styled.div`
   width:20px;
@@ -42,7 +53,7 @@ function Task(props) {
           >
             {/* Custom Handler */}
             {/* <Handle {...provided.dragHandleProps} /> */}
-            {props.task.content}
+            {props.task.content[0]}
           </Container>
         )
       }
